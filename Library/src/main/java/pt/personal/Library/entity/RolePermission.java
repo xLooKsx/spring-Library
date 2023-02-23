@@ -4,33 +4,34 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import pt.personal.Library.service.serviceImplement.PermissionServiceImplement;
-import pt.personal.Library.service.serviceImplement.RolesServiceImplement;
+import pt.personal.Library.service.serviceImplement.RoleServiceImplement;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-@Table(name = "roles_permission")
-public class RolesPermission {
+@Table(name = "role_permission")
+public class RolePermission {
     @Id
-    private UUID roles_id;
+    private UUID role_id;
 
     @NotNull
     @NotBlank
     private UUID permission_id;
 
     @Transient
-    private Roles roles;
+    private Role role;
 
     @Transient
     private Permission permission;
 
     //Getters & Setters
-    public UUID getRoles_id() {
-        return roles_id;
+    public UUID getRole_id() {
+        return role_id;
     }
 
-    public void setRoles_id(UUID roles_id) {
-        this.roles_id = roles_id;
+    public void setRole_id(UUID role_id) {
+        this.role_id = role_id;
     }
 
     public UUID getPermission_id() {
@@ -41,13 +42,13 @@ public class RolesPermission {
         this.permission_id = permission_id;
     }
 
-    public Roles getRoles() {
-        roles = new RolesServiceImplement().findById(roles_id);
-        return roles;
+    public Role getRole() {
+        role = new RoleServiceImplement().findById(role_id);
+        return role;
     }
 
-    public void setRoles(Roles roles) {
-        this.roles = roles;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public Permission getPermission() {

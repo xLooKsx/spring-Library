@@ -9,8 +9,8 @@ import jakarta.validation.constraints.NotNull;
 import java.util.UUID;
 
 @Entity
-@Table(name = "roles")
-public class Roles {
+@Table(name = "role")
+public class Role {
     @Id
     private UUID id = UUID.randomUUID();
 

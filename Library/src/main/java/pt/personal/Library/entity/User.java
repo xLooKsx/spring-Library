@@ -3,7 +3,7 @@ package pt.personal.Library.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import pt.personal.Library.service.serviceImplement.RolesServiceImplement;
+import pt.personal.Library.service.serviceImplement.RoleServiceImplement;
 
 import java.util.UUID;
 
@@ -30,7 +30,7 @@ public class User {
     private UUID role_id;
 
     @Transient
-    private Roles roles;
+    private Role role;
 
     //Getters & Setters
     public UUID getId() {
@@ -73,12 +73,12 @@ public class User {
         this.role_id = role_id;
     }
 
-    public Roles getRoles() {
-        roles = new RolesServiceImplement().findById(role_id);
-        return roles;
+    public Role getRole() {
+        role = new RoleServiceImplement().findById(role_id);
+        return role;
     }
 
-    public void setRoles(Roles roles) {
-        this.roles = roles;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
